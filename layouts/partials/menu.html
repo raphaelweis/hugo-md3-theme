@@ -19,24 +19,37 @@ Renders a menu for the given menu ID.
 {{- define "partials/inline/menu/walk.html" }}
   {{- $page := .page }}
   {{- range .menuEntries }}
-    {{- $attrs := dict "href" .URL }}
+    {{- $baseClass := "nav-link typography-body-large" }}
+    {{- $classes := $baseClass }}
+
     {{- if $page.IsMenuCurrent .Menu . }}
-      {{- $attrs = merge $attrs (dict "class" "active" "aria-current" "page") }}
-    {{- else if $page.HasMenuCurrent .Menu .}}
-      {{- $attrs = merge $attrs (dict "class" "ancestor" "aria-current" "true") }}
+      {{- $classes = printf "%s active" $classes }}
+    {{- else if $page.HasMenuCurrent .Menu . }}
+      {{- $classes = printf "%s ancestor" $classes }}
     {{- end }}
+
+    {{- $attrs := dict "href" .URL "class" $classes }}
+
     {{- $name := .Name }}
     {{- with .Identifier }}
       {{- with T . }}
         {{- $name = . }}
       {{- end }}
     {{- end }}
-    <a class="nav-link typography-body-large"
+
+    <a
       {{- range $k, $v := $attrs }}
         {{- with $v }}
           {{- printf " %s=%q" $k $v | safeHTMLAttr }}
         {{- end }}
       {{- end -}}
-    >{{ $name }}</a>
+    >
+      {{- $iconName := .Identifier | default .Name }}
+      {{- $iconPath := printf "/icons/%s.svg" $iconName }}
+      <span class="nav-icon">
+        {{ readFile (printf "static/icons/%s.svg" $iconName) | safeHTML }}
+      </span>
+      <span>{{ $name }}</span>
+    </a>
   {{- end }}
 {{- end }}

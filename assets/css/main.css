@@ -42,8 +42,20 @@ nav {
 .nav-link {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex: 1;
+  gap: 4px;
   padding: 24px 16px;
   text-decoration: none;
   color: var(--colors-primary);
+  border-radius: var(--shape-full);
+}
+
+.nav-link.active {
+  background-color: var(--colors-primary);
+  color: var(--colors-on-primary)
+}
+
+.nav-icon {
+  display: flex;
 }
