@@ -1,0 +1,15 @@
+<div id="profile-picture-container">
+    <img id="profile-picture" src="/the_solo_traveller.webp" />
+    <div id="social-icons">
+        {{ readFile (printf "static/icons/Mail.svg") | safeHTML }}
+        {{ readFile (printf "static/icons/Linkedin.svg") | safeHTML }}
+        {{ readFile (printf "static/icons/GitHub.svg") | safeHTML }}
+    </div>
+</div>
+<div id="sidebar-info-container">
+    <span class="sidebar-info typography-headline-large">{{ .Site.Params.name }}</span>
+    <span class="sidebar-info typography-body-medium">{{ .Site.Params.tagline }}</span>
+</div>
+<div id="sidebar-footer">
+    <a id="page-source-link" class="typography-title-medium" href="https://github.com/raphaelweis/hugo-md3-theme">Page source</a>
+</div>

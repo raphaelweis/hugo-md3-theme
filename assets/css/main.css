@@ -13,7 +13,33 @@
   --shape-small: 8px;
   --shape-medium: 12px;
   --shape-large: 16px;
+  --shape-extra-large: 28px;
   --shape-full: 9999px;
+
+  --profile-picture-size: 256px;
+}
+
+.typography-headline-large {
+  font-family: Roboto;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 40px;
+}
+
+.typography-title-medium {
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.15px;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: auto;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
 }
 
 .typography-body-large {
@@ -25,17 +51,91 @@
   letter-spacing: 0.5px;
 }
 
+.typography-body-medium {
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.25px;
+}
+
+html {
+  height: 100vh;
+  display: flex;
+  flex: 1;
+}
+
 body {
+  display: flex;
+  flex: 1;
+  gap: 24px;
   background-color: var(--colors-surface);
   margin: 0;
   padding: 24px;
+}
+
+#sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: var(--profile-picture-size);
+}
+
+#profile-picture-container {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--colors-surface-container-highest);
+  border-radius: var(--shape-extra-large);
+}
+
+#profile-picture {
+  width: var(--profile-picture-size);
+  height: var(--profile-picture-size);
+  border-radius: var(--shape-extra-large);
+}
+
+#social-icons {
+  display: flex;
+  justify-content: space-between;
+  color: var(--colors-primary);
+  padding: 24px;
+}
+
+#sidebar-info-container {
+  padding: 32px 0;
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+}
+
+.sidebar-info {
+  color: var(--colors-on-surface-variant);
+  text-align: center;
+}
+
+#sidebar-footer {
+  display: flex;
+  align-items: end;
+  flex: 1;
+}
+
+#page-source-link {
+  color: var(--colors-primary);
+}
+
+#content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
 }
 
 nav {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  background-color: var(--colors-surface-container);
+  background-color: var(--colors-surface-container-highest);
+  /* background-color: var(--colors); */
   border-radius: var(--shape-full);
 }
 

@@ -7,3 +7,7 @@ sectionPagesMenu = 'main'
 [module.hugoVersion]
 extended = false
 min = "0.116.0"
+
+[params]
+name = "Raphaël Weis"
+tagline = "French software engineering student."
