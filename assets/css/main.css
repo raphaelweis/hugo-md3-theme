@@ -1,13 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
 :root {
-  --colors-primary: #3C6839;
-  --colors-on-surface: #191D17;
+  --colors-primary: #3c6839;
+  --colors-on-surface: #191d17;
   --colors-on-surface-variant: #424940;
-  --colors-on-primary: #FFFFFF;
-  --colors-surface-container-highest: #E0E4DB;
-  --colors-surface-container: #ECEFE6;
-  --colors-surface: #F7FBF1;
+  --colors-on-primary: #ffffff;
+  --colors-surface-container-highest: #e0e4db;
+  --colors-surface-container: #ecefe6;
+  --colors-surface: #f7fbf1;
 
   --shape-extra-small: 4px;
   --shape-small: 8px;
@@ -19,12 +19,58 @@
   --profile-picture-size: 256px;
 }
 
-.typography-headline-large {
+.typography-display-large,
+h1 {
+  font-family: Roboto;
+  font-size: 57px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 64px;
+  letter-spacing: -0.25px;
+}
+
+.typography-display-medium,
+h2 {
+  font-family: Roboto;
+  font-size: 45px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 52px;
+}
+
+.typography-display-small,
+h3 {
+  font-family: Roboto;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 44px;
+}
+
+.typography-headline-large,
+h4 {
   font-family: Roboto;
   font-size: 32px;
   font-style: normal;
   font-weight: 600;
   line-height: 40px;
+}
+
+.typography-headline-medium,
+h5 {
+  font-family: Roboto;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 36px;
+}
+.typography-headline-small,
+h6 {
+  font-family: Roboto;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 32px;
 }
 
 .typography-title-medium {
@@ -51,7 +97,8 @@
   letter-spacing: 0.5px;
 }
 
-.typography-body-medium {
+.typography-body-medium,
+p {
   font-family: Roboto;
   font-size: 16px;
   font-style: normal;
@@ -135,7 +182,6 @@ nav {
   justify-content: space-evenly;
   align-items: center;
   background-color: var(--colors-surface-container-highest);
-  /* background-color: var(--colors); */
   border-radius: var(--shape-full);
 }
 
@@ -153,9 +199,21 @@ nav {
 
 .nav-link.active {
   background-color: var(--colors-primary);
-  color: var(--colors-on-primary)
+  color: var(--colors-on-primary);
 }
 
 .nav-icon {
   display: flex;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.markdown {
+  flex: 1;
+  padding: 16px;
+  max-width: 1024px;
 }
