@@ -10,4 +10,8 @@ min = "0.116.0"
 
 [params]
 name = "Raphaël Weis"
+email = "raphael.weis.g@gmail.com"
 tagline = "French software engineering student."
+linkedin = "https://www.linkedin.com/in/raphaelweis"
+github = "https://github.com/raphaelweis"
+pageSource = "https://github.com/raphaelweis/hugo-md3-theme"

@@ -1,15 +1,45 @@
 <div id="profile-picture-container">
-    <img id="profile-picture" src="/the_solo_traveller.webp" />
-    <div id="social-icons">
-        {{ readFile (printf "static/icons/Mail.svg") | safeHTML }}
-        {{ readFile (printf "static/icons/Linkedin.svg") | safeHTML }}
-        {{ readFile (printf "static/icons/GitHub.svg") | safeHTML }}
-    </div>
+  <img id="profile-picture" src="/the_solo_traveller.webp" />
+  <div id="social-icons">
+    <a
+      class="social-icon-container"
+      href="mailto:{{ site.Params.email }}"
+      target="_blank"
+    >
+      {{ readFile (printf "static/icons/Mail.svg") | safeHTML }}
+      <div class="social-icon-hover"></div>
+    </a>
+    <a
+      class="social-icon-container"
+      href="{{ site.Params.linkedin }}"
+      target="_blank"
+    >
+      {{ readFile (printf "static/icons/Linkedin.svg") | safeHTML }}
+      <div class="social-icon-hover"></div>
+    </a>
+    <a
+      class="social-icon-container"
+      href="{{ site.Params.github }}"
+      target="_blank"
+    >
+      {{ readFile (printf "static/icons/GitHub.svg") | safeHTML }}
+      <div class="social-icon-hover"></div>
+    </a>
+  </div>
 </div>
 <div id="sidebar-info-container">
-    <span class="sidebar-info typography-headline-large">{{ .Site.Params.name }}</span>
-    <span class="sidebar-info typography-body-medium">{{ .Site.Params.tagline }}</span>
+  <span class="sidebar-info typography-headline-large"
+    >{{ .Site.Params.name }}</span
+  >
+  <span class="sidebar-info typography-body-medium"
+    >{{ .Site.Params.tagline }}</span
+  >
 </div>
 <div id="sidebar-footer">
-    <a id="page-source-link" class="typography-title-medium" href="https://github.com/raphaelweis/hugo-md3-theme">Page source</a>
+  <a
+    id="page-source-link"
+    class="typography-title-medium"
+    href="{{ site.Params.pageSource }}"
+    >Page source</a
+  >
 </div>

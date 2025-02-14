@@ -4,10 +4,14 @@
   --colors-primary: #3c6839;
   --colors-on-surface: #191d17;
   --colors-on-surface-variant: #424940;
+  --colors-on-surface-variant-20: #42494033;
+  --colors-on-surface-variant-40: #42494066;
   --colors-on-primary: #ffffff;
   --colors-surface-container-highest: #e0e4db;
   --colors-surface-container: #ecefe6;
   --colors-surface: #f7fbf1;
+
+  --opacity-hover: 20%;
 
   --shape-extra-small: 4px;
   --shape-small: 8px;
@@ -17,6 +21,7 @@
   --shape-full: 9999px;
 
   --profile-picture-size: 256px;
+  --social-icon-hover-size: 64px;
 }
 
 .typography-display-large,
@@ -109,13 +114,15 @@ p {
 
 html {
   height: 100vh;
+  width: 100vw;
   display: flex;
-  flex: 1;
+  justify-content: center;
 }
 
 body {
   display: flex;
   flex: 1;
+  max-width: calc(100vh * (16 / 9));
   gap: 24px;
   background-color: var(--colors-surface);
   margin: 0;
@@ -145,8 +152,35 @@ body {
 #social-icons {
   display: flex;
   justify-content: space-between;
-  color: var(--colors-primary);
   padding: 24px;
+}
+
+.social-icon-container {
+  display: flex;
+  position: relative;
+  color: var(--colors-primary);
+}
+
+.social-icon-hover {
+  visibility: hidden;
+  position: absolute;
+  width: var(--social-icon-hover-size);
+  height: var(--social-icon-hover-size);
+  border-radius: var(--shape-full);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  background-color: transparent;
+  transition: visibility 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.social-icon-container:hover .social-icon-hover {
+  visibility: visible;
+  background-color: var(--colors-on-surface-variant-20);
+}
+
+.social-icon-hover-active {
+  background-color: var(--colors-on-surface-variant-40) !important;
 }
 
 #sidebar-info-container {
@@ -180,9 +214,9 @@ body {
 nav {
   display: flex;
   justify-content: space-evenly;
-  align-items: center;
   background-color: var(--colors-surface-container-highest);
   border-radius: var(--shape-full);
+  max-width: 100%;
 }
 
 .nav-link {
@@ -200,6 +234,19 @@ nav {
 .nav-link.active {
   background-color: var(--colors-primary);
   color: var(--colors-on-primary);
+}
+
+.nav-link:not(.active) {
+  transition: background-color 0.2s ease-in-out;
+  background-color: transparent;
+}
+
+.nav-link:not(.active):hover {
+  background-color:  var(--colors-on-surface-variant-20);
+}
+
+.nav-link-pressed {
+  background-color: var(--colors-on-surface-variant-40) !important;
 }
 
 .nav-icon {
