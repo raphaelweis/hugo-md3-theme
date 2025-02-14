@@ -1,5 +1,7 @@
 <div id="menu-bar">
-  {{ readFile (printf "static/icons/Hamburger.svg") | safeHTML }}
+  <div id="hamburger-open">
+    {{ readFile (printf "static/icons/HamburgerOpen.svg") | safeHTML }}
+  </div>
   <div id="menu-social-icons">
     <a
       class="menu-social-icon-container"
