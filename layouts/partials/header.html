@@ -1,1 +1,30 @@
+<div id="menu-bar">
+  {{ readFile (printf "static/icons/Hamburger.svg") | safeHTML }}
+  <div id="menu-social-icons">
+    <a
+      class="menu-social-icon-container"
+      href="mailto:{{ site.Params.email }}"
+      target="_blank"
+    >
+      {{ readFile (printf "static/icons/Mail.svg") | safeHTML }}
+      <div class="menu-social-icon-hover"></div>
+    </a>
+    <a
+      class="menu-social-icon-container"
+      href="{{ site.Params.linkedin }}"
+      target="_blank"
+    >
+      {{ readFile (printf "static/icons/Linkedin.svg") | safeHTML }}
+      <div class="menu-social-icon-hover"></div>
+    </a>
+    <a
+      class="menu-social-icon-container"
+      href="{{ site.Params.github }}"
+      target="_blank"
+    >
+      {{ readFile (printf "static/icons/GitHub.svg") | safeHTML }}
+      <div class="menu-social-icon-hover"></div>
+    </a>
+  </div>
+</div>
 {{ partial "menu.html" (dict "menuID" "main" "page" .) }}

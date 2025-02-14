@@ -26,4 +26,18 @@ document.addEventListener("DOMContentLoaded", (event) => {
       socialIconHover.classList.remove("social-icon-hover-active");
     });
   });
+
+  document.querySelectorAll(".menu-social-icon-container").forEach((socialIcon) => {
+    const socialIconHover = socialIcon.querySelector(".menu-social-icon-hover");
+
+    socialIcon.addEventListener("mousedown", function () {
+      socialIconHover.classList.add("menu-social-icon-hover-active");
+    });
+    socialIcon.addEventListener("pointerup", function () {
+      socialIconHover.classList.remove("menu-social-icon-hover-active");
+    });
+    socialIcon.addEventListener("pointerleave", function () {
+      socialIconHover.classList.remove("menu-social-icon-hover-active");
+    });
+  });
 });

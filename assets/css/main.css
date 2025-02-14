@@ -22,6 +22,7 @@
 
   --profile-picture-size: 256px;
   --social-icon-hover-size: 64px;
+  --menu-social-icon-hover-size: 48px;
 }
 
 .typography-display-large,
@@ -112,20 +113,23 @@ p {
   letter-spacing: 0.25px;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 html {
   height: 100vh;
   width: 100vw;
-  display: flex;
-  justify-content: center;
 }
 
 body {
   display: flex;
+  margin: auto;
   flex: 1;
+  height: 100%;
   max-width: calc(100vh * (16 / 9));
   gap: 24px;
   background-color: var(--colors-surface);
-  margin: 0;
   padding: 24px;
 }
 
@@ -207,16 +211,69 @@ body {
 
 #content {
   display: flex;
+  max-width: 100%;
   flex: 1;
   flex-direction: column;
 }
 
+header {
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+}
+
+#menu-bar {
+  display: none;
+  color: var(--colors-on-surface-variant);
+  padding: 8px;
+}
+
+#menu-social-icons {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+.menu-social-icon-container {
+  display: flex;
+  position: relative;
+  color: var(--colors-on-surface-variant);
+}
+
+.menu-social-icon-hover {
+  visibility: hidden;
+  position: absolute;
+  width: var(--menu-social-icon-hover-size);
+  height: var(--menu-social-icon-hover-size);
+  border-radius: var(--shape-full);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  background-color: transparent;
+  transition: visibility 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.menu-social-icon-container:hover .menu-social-icon-hover {
+  visibility: visible;
+  background-color: var(--colors-on-surface-variant-20);
+}
+
+.menu-social-icon-hover-active {
+  background-color: var(--colors-on-surface-variant-40) !important;
+}
+
+#menu-social-icons > a > svg {
+  height: 24px;
+  width: 24px;
+}
+
 nav {
   display: flex;
-  justify-content: space-evenly;
+  flex: 1;
+  overflow-x: auto;
   background-color: var(--colors-surface-container-highest);
   border-radius: var(--shape-full);
-  max-width: 100%;
 }
 
 .nav-link {
@@ -242,7 +299,7 @@ nav {
 }
 
 .nav-link:not(.active):hover {
-  background-color:  var(--colors-on-surface-variant-20);
+  background-color: var(--colors-on-surface-variant-20);
 }
 
 .nav-link-pressed {
@@ -263,4 +320,18 @@ main {
   flex: 1;
   padding: 16px;
   max-width: 1024px;
+}
+
+@media (max-width: 1024px) {
+  #sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 250px;
+    height: 100%;
+  }
+
+  #menu-bar {
+    display: flex;
+  }
 }
