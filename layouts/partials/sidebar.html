@@ -39,10 +39,14 @@
   >
 </div>
 <div id="sidebar-footer">
-  <a
-    id="page-source-link"
-    class="typography-title-medium"
-    href="{{ site.Params.pageSource }}"
-    >Page source</a
-  >
+  <div id="theme-toggle-hover">
+    <div id="theme-toggle">
+      <div id="theme-toggle-light">
+        {{ readFile (printf "static/icons/Light.svg") | safeHTML }}
+      </div>
+      <div id="theme-toggle-dark">
+        {{ readFile (printf "static/icons/Dark.svg") | safeHTML }}
+      </div>
+    </div>
+  </div>
 </div>

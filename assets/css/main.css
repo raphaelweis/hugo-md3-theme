@@ -10,7 +10,7 @@
   --colors-surface-container-highest: #e0e4db;
   --colors-surface-container: #ecefe6;
   --colors-surface: #f7fbf1;
-  --colors-scrim: #2c322a66;
+  --colors-scrim: #00000066;
 
   --opacity-hover: 20%;
 
@@ -24,6 +24,24 @@
   --profile-picture-size: 256px;
   --social-icon-hover-size: 64px;
   --menu-social-icon-hover-size: 48px;
+  --icon-size: 24px;
+}
+
+[data-theme="dark"] {
+  --colors-primary: #a2d399;
+  --colors-on-surface: #e0e4db;
+  --colors-on-surface-variant: #c2c8bd;
+  --colors-on-surface-variant-20: #c2c8bd33;
+  --colors-on-surface-variant-40: #c2c8bd66;
+  --colors-on-primary: #0b390f;
+  --colors-surface-container-highest: #323630;
+  --colors-surface-container: #1d211b;
+  --colors-surface: #10140f;
+  --colors-scrim: #00000066;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 .typography-display-large,
@@ -34,6 +52,7 @@ h1 {
   font-weight: 600;
   line-height: 64px;
   letter-spacing: -0.25px;
+  color: var(--colors-on-surface);
 }
 
 .typography-display-medium,
@@ -43,6 +62,7 @@ h2 {
   font-style: normal;
   font-weight: 500;
   line-height: 52px;
+  color: var(--colors-on-surface);
 }
 
 .typography-display-small,
@@ -52,6 +72,7 @@ h3 {
   font-style: normal;
   font-weight: 500;
   line-height: 44px;
+  color: var(--colors-on-surface);
 }
 
 .typography-headline-large,
@@ -61,6 +82,7 @@ h4 {
   font-style: normal;
   font-weight: 600;
   line-height: 40px;
+  color: var(--colors-on-surface);
 }
 
 .typography-headline-medium,
@@ -70,7 +92,9 @@ h5 {
   font-style: normal;
   font-weight: 500;
   line-height: 36px;
+  color: var(--colors-on-surface);
 }
+
 .typography-headline-small,
 h6 {
   font-family: Roboto;
@@ -78,6 +102,7 @@ h6 {
   font-style: normal;
   font-weight: 500;
   line-height: 32px;
+  color: var(--colors-on-surface);
 }
 
 .typography-title-medium {
@@ -93,6 +118,7 @@ h6 {
   text-decoration-thickness: auto;
   text-underline-offset: auto;
   text-underline-position: from-font;
+  color: var(--colors-on-surface);
 }
 
 .typography-body-large {
@@ -102,6 +128,7 @@ h6 {
   font-weight: 600;
   line-height: 24px;
   letter-spacing: 0.5px;
+  color: var(--colors-on-surface);
 }
 
 .typography-body-medium,
@@ -112,15 +139,13 @@ p {
   font-weight: 400;
   line-height: 20px;
   letter-spacing: 0.25px;
-}
-
-* {
-  box-sizing: border-box;
+  color: var(--colors-on-surface);
 }
 
 html {
   height: 100vh;
   width: 100vw;
+  background-color: var(--colors-surface);
 }
 
 body {
@@ -200,7 +225,7 @@ body {
   background-color: var(--colors-on-surface-variant-20);
 }
 
-.social-icon-hover-active {
+.social-icon-hover.active {
   background-color: var(--colors-on-surface-variant-40) !important;
 }
 
@@ -222,8 +247,52 @@ body {
   flex: 1;
 }
 
-#page-source-link {
-  color: var(--colors-primary);
+#theme-toggle {
+  display: flex;
+  position: relative;
+  width: var(--icon-size);
+  height: 24px;
+  color: var(--colors-on-surface-variant);
+}
+
+#theme-toggle-hover {
+  visibility: hidden;
+  background-color: transparent;
+  padding: 12px;
+  border-radius: var(--shape-full);
+  transition: visibility 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+#theme-toggle > div {
+  position: absolute;
+  cursor: pointer;
+  left: 0;
+  top: 0;
+}
+
+#theme-toggle-hover:hover {
+  visibility: visible;
+  background-color: var(--colors-on-surface-variant-20);
+}
+
+#theme-toggle-hover.active {
+  background-color: var(--colors-on-surface-variant-40);
+}
+
+#theme-toggle-light {
+  visibility: hidden;
+}
+
+#theme-toggle-dark {
+  visibility: visible;
+}
+
+[data-theme="dark"] #theme-toggle-light {
+  visibility: visible;
+}
+
+[data-theme="dark"] #theme-toggle-dark {
+  visibility: hidden;
 }
 
 #content {
@@ -246,6 +315,7 @@ header {
 }
 
 #hamburger-open {
+  display: flex;
   cursor: pointer;
 }
 
@@ -353,7 +423,7 @@ main {
     visibility: visible;
     transition: opacity 0.4s ease-out, visibility 0s linear;
   }
-  
+
   #sidebar:not(.active) + #backdrop {
     opacity: 0;
     visibility: hidden;
@@ -391,6 +461,7 @@ main {
     align-self: flex-start;
     padding: 8px;
     margin-bottom: 16px;
+    color: var(--colors-on-surface-variant);
   }
 
   #menu-bar {
