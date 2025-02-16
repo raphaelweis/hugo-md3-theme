@@ -1,10 +1,9 @@
-name = 'Md3'
+name = 'hugo-md3-theme'
 license = 'MIT'
-licenselink = 'https://github.com/owner/repo/LICENSE'
+licenselink = 'https://github.com/raphaelweis/hugo-md3-theme/LICENSE'
 description = 'Material design 3 inspired theme for Hugo.'
-# Not created yet
-# homepage = 'https://github.com/raphaelweis/hugo-md3-theme'
+homepage = 'https://github.com/raphaelweis/hugo-md3-theme'
 
 [author]
   name = 'Raphaël Weis'
-  homepage = 'raphaelweis.com'
+  homepage = 'https://raphaelweis.com'

@@ -1,0 +1,18 @@
+baseURL = 'https://example.com'
+languageCode = 'en-US'
+title = 'Material design 3 Hugo theme'
+sectionPagesMenu = 'main'
+theme = "hugo-md3-theme"
+
+[module]
+[module.hugoVersion]
+extended = false
+min = "0.116.0"
+
+[params]
+name = "John Doe"
+email = "john.doe@example.com"
+tagline = "Your tagline here"
+profilePicturePath = "profile-picture.webp"
+linkedin = "https://example.com"
+github = "https://example.com"

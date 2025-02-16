@@ -2,7 +2,7 @@
   {{ readFile (printf "static/icons/HamburgerClose.svg") | safeHTML }}
 </div>
 <div id="profile-picture-container">
-  <img id="profile-picture" src="/the_solo_traveller.webp" />
+  <img id="profile-picture" src="/{{ site.Params.profilePicturePath }}" />
   <div id="social-icons">
     <a
       class="social-icon-container"
