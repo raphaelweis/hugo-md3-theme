@@ -47,7 +47,7 @@
 .typography-display-large,
 h1 {
   font-family: Roboto;
-  font-size: 57px;
+  font-size: 3rem;
   font-style: normal;
   font-weight: 600;
   line-height: 64px;
@@ -58,7 +58,7 @@ h1 {
 .typography-display-medium,
 h2 {
   font-family: Roboto;
-  font-size: 45px;
+  font-size: 2.5rem;
   font-style: normal;
   font-weight: 500;
   line-height: 52px;
@@ -68,7 +68,7 @@ h2 {
 .typography-display-small,
 h3 {
   font-family: Roboto;
-  font-size: 36px;
+  font-size: 2.125rem;
   font-style: normal;
   font-weight: 500;
   line-height: 44px;
@@ -78,7 +78,7 @@ h3 {
 .typography-headline-large,
 h4 {
   font-family: Roboto;
-  font-size: 32px;
+  font-size: 2rem;
   font-style: normal;
   font-weight: 600;
   line-height: 40px;
@@ -88,7 +88,7 @@ h4 {
 .typography-headline-medium,
 h5 {
   font-family: Roboto;
-  font-size: 28px;
+  font-size: 1.625rem;
   font-style: normal;
   font-weight: 500;
   line-height: 36px;
@@ -98,7 +98,7 @@ h5 {
 .typography-headline-small,
 h6 {
   font-family: Roboto;
-  font-size: 24px;
+  font-size: 1.5rem;
   font-style: normal;
   font-weight: 500;
   line-height: 32px;
@@ -107,7 +107,7 @@ h6 {
 
 .typography-title-medium {
   font-family: Roboto;
-  font-size: 16px;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 500;
   line-height: 24px;
@@ -123,7 +123,7 @@ h6 {
 
 .typography-body-large {
   font-family: Roboto;
-  font-size: 16px;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 600;
   line-height: 24px;
@@ -132,9 +132,10 @@ h6 {
 }
 
 .typography-body-medium,
-p {
+p,
+body {
   font-family: Roboto;
-  font-size: 16px;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 400;
   line-height: 20px;
@@ -151,9 +152,9 @@ html {
 body {
   display: flex;
   margin: auto;
+  overflow: hidden;
   flex: 1;
   height: 100%;
-  max-width: calc(100vh * (16 / 9));
   background-color: var(--colors-surface);
   padding: 24px;
 }
@@ -167,10 +168,14 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  transition: opacity 0.4s ease-out, visibility 0.4s ease-out;
+  transition:
+    opacity 0.4s ease-out,
+    visibility 0.4s ease-out;
 }
 
 #sidebar {
+  position: sticky;
+  top: 0;
   display: flex;
   margin-right: 24px;
   flex-direction: column;
@@ -217,7 +222,9 @@ body {
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
   background-color: transparent;
-  transition: visibility 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  transition:
+    visibility 0.2s ease-in-out,
+    background-color 0.2s ease-in-out;
 }
 
 .social-icon-container:hover .social-icon-hover {
@@ -260,7 +267,9 @@ body {
   background-color: transparent;
   padding: 12px;
   border-radius: var(--shape-full);
-  transition: visibility 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  transition:
+    visibility 0.2s ease-in-out,
+    background-color 0.2s ease-in-out;
 }
 
 #theme-toggle > div {
@@ -296,6 +305,7 @@ body {
 }
 
 #content {
+  overflow: hidden;
   display: flex;
   max-width: 100%;
   flex: 1;
@@ -342,7 +352,9 @@ header {
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
   background-color: transparent;
-  transition: visibility 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  transition:
+    visibility 0.2s ease-in-out,
+    background-color 0.2s ease-in-out;
 }
 
 .menu-social-icon-container:hover .menu-social-icon-hover {
@@ -402,6 +414,7 @@ nav {
 }
 
 main {
+  overflow: auto;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -409,8 +422,23 @@ main {
 
 .markdown {
   flex: 1;
-  padding: 16px;
+  padding: 0 16px;
   max-width: 1024px;
+}
+
+.markdown p:has(img) {
+  display: flex;
+  justify-content: center;
+}
+
+.markdown img {
+  max-width: 100%;
+  max-height: 512px;
+  border-radius: var(--shape-small);
+}
+
+.markdown a {
+  color: var(--colors-primary);
 }
 
 @media (max-width: 1024px) {
@@ -421,13 +449,17 @@ main {
   #sidebar.active + #backdrop {
     opacity: 1;
     visibility: visible;
-    transition: opacity 0.4s ease-out, visibility 0s linear;
+    transition:
+      opacity 0.4s ease-out,
+      visibility 0s linear;
   }
 
   #sidebar:not(.active) + #backdrop {
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.4s ease-out, visibility 0s linear 0.4s;
+    transition:
+      opacity 0.4s ease-out,
+      visibility 0s linear 0.4s;
   }
 
   #sidebar {
@@ -452,7 +484,9 @@ main {
   }
 
   #sidebar:not(.active) {
-    transition: left 0.4s ease-out, visibility 0s linear 0.4s;
+    transition:
+      left 0.4s ease-out,
+      visibility 0s linear 0.4s;
   }
 
   #hamburger-close {
@@ -466,5 +500,11 @@ main {
 
   #menu-bar {
     display: flex;
+  }
+}
+
+@media (min-width: 1920px) {
+  body {
+    max-width: calc(100vh * (16 / 9));
   }
 }
