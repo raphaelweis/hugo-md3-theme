@@ -227,6 +227,7 @@ body {
 #sidebar-info-container {
   padding: 32px 0;
   display: flex;
+  width: var(--profile-picture-size);
   gap: 8px;
   flex-direction: column;
 }
