@@ -132,8 +132,8 @@ body {
 }
 
 html {
-  height: 100vh;
-  width: 100vw;
+  height: 100dvh;
+  width: 100dvw;
   background-color: var(--colors-surface);
 }
 
@@ -495,6 +495,6 @@ main {
 
 @media (min-width: 1920px) {
   body {
-    max-width: calc(100vh * (16 / 9));
+    max-width: calc(100dvh * (16 / 9));
   }
 }
