@@ -140,7 +140,6 @@ html {
 body {
   display: flex;
   margin: auto;
-  overflow: hidden;
   flex: 1;
   height: 100%;
   background-color: var(--colors-surface);
@@ -294,7 +293,6 @@ body {
 }
 
 #content {
-  overflow: hidden;
   display: flex;
   max-width: 100%;
   flex: 1;
