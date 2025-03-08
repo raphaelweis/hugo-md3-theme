@@ -2,5 +2,25 @@
 <meta name="viewport" content="width=device-width">
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
+<script>
+    function setTheme(theme) {
+        document.documentElement.setAttribute("data-theme", theme);
+        localStorage.setItem("theme", theme);
+    }
+        
+    function detectTheme() {
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme) {
+            setTheme(savedTheme);
+        } else {
+            const systemPrefersDark = window.matchMedia(
+            "(prefers-color-scheme: dark)"
+            ).matches;
+            setTheme(systemPrefersDark ? "dark" : "light");
+        }
+    }
+        
+    detectTheme();
+</script>
 {{ partialCached "head/css.html" . }}
 {{ partialCached "head/js.html" . }}
