@@ -133,17 +133,17 @@ body {
 
 html {
   height: 100dvh;
-  width: 100dvw;
+  width: 100%;
   background-color: var(--colors-surface);
 }
 
 body {
+  z-index: 1;
   display: flex;
   margin: auto;
   flex: 1;
-  height: 100%;
   background-color: var(--colors-surface);
-  padding: 24px;
+  padding: 0 24px;
 }
 
 #backdrop {
@@ -163,9 +163,12 @@ body {
 #sidebar {
   position: sticky;
   top: 0;
+  padding: 24px 0;
+  height: 100dvh;
   display: flex;
   margin-right: 24px;
   flex-direction: column;
+  align-self: flex-start;
   align-items: center;
   max-width: var(--profile-picture-size);
 }
@@ -293,6 +296,7 @@ body {
 }
 
 #content {
+  background-color: var(--colors-surface);
   display: flex;
   max-width: 100%;
   flex: 1;
@@ -301,6 +305,10 @@ body {
 
 header {
   display: flex;
+  position: sticky;
+  top: 0;
+  padding-top: 24px;
+  background-color: var(--colors-surface);
   gap: 16px;
   flex-direction: column;
 }
@@ -401,7 +409,6 @@ nav {
 }
 
 main {
-  overflow: auto;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -431,7 +438,7 @@ main {
 
 @media (max-width: 1024px) {
   body {
-    padding: 16px;
+    padding: 0 16px;
   }
 
   #sidebar.active + #backdrop {
@@ -488,6 +495,10 @@ main {
 
   #menu-bar {
     display: flex;
+  }
+  
+  header {
+    padding-top: 16px;
   }
 }
 
